@@ -15,15 +15,15 @@ pipeline {
   stage('Docker Build and Tag') {
            steps {
               
-                sh 'docker build -t devopsclass:latest .' 
-                sh 'docker tag devopsclass srikanta1219/devopsclass:$BUILD_NUMBER'
+                sh 'docker build -t jdk_mvn:latest .' 
+                sh 'docker tag jdk_mvn 8249355606/jdk_mvn:$BUILD_NUMBER'
                
           }
         }
   stage('Publish image to Docker Hub') {
             steps {
         withDockerRegistry([ credentialsId: "DockerHub", url: "" ]) {
-           sh  'docker push srikanta1219/devopsclass:$BUILD_NUMBER' 
+           sh  'docker push 8249355606/jdk_mvn:$BUILD_NUMBER' 
 		}
                   
           }
